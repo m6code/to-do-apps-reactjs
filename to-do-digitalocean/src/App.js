@@ -1,19 +1,34 @@
 import React, { useState } from 'react';
 import './App.css';
-import { Todo } from './components/Todo';
+import Todo from './components/Todo';
 import TodoForm from './components/TodoForm';
 
 function App() {
   // The first parameter, todos, is what we are going to name our state.
   // The second parameter, setTodos, is what we are going to use to set the state.
   const [todos, setTodos] = useState([
-    { text: "Learn about React" },
-    { text: "Meet friend for Lunch" },
-    { text: "Build a cool todo app" }
+    {
+      text: "Learn about React",
+      isCompleted: false,
+    },
+    {
+      text: "Meet friend for Lunch",
+      isCompleted: false,
+    },
+    {
+      text: "Build a cool todo app",
+      isCompleted: false,
+    }
   ]);
 
   const addTodo = text => {
-    const newTodos = [...todos, {text}];
+    const newTodos = [...todos, { text }];
+    setTodos(newTodos);
+  }
+
+  const completeTodo = index => {
+    const newTodos = [...todos];
+    newTodos[index].isCompleted = true;
     setTodos(newTodos);
   }
 
@@ -26,6 +41,7 @@ function App() {
             key={index}
             index={index}
             todo={todo}
+            completeTodo={completeTodo}
           />
         ))}
         <TodoForm addTodo={addTodo} />
