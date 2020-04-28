@@ -32,6 +32,12 @@ function App() {
     setTodos(newTodos);
   }
 
+  const removeTodo = index => {
+    const newTodos = [...todos];
+    newTodos.splice(index, 1);
+    setTodos(newTodos);
+  }
+
   //TODO: Render Todos here
   return (
     <div className="app">
@@ -42,6 +48,7 @@ function App() {
             index={index}
             todo={todo}
             completeTodo={completeTodo}
+            removeTodo={removeTodo}
           />
         ))}
         <TodoForm addTodo={addTodo} />

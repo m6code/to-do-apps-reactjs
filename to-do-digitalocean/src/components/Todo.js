@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Todo({todo, index, completeTodo}) {
+function Todo({todo, index, completeTodo, removeTodo}) {
     return (
         <div
             className="todo"
@@ -10,6 +10,7 @@ function Todo({todo, index, completeTodo}) {
 
             <div>
                 <button onClick={() => completeTodo(index)}>Complete</button>
+                <button onClick={() => removeTodo(index)}>X</button>
             </div>
         </div>
     );
