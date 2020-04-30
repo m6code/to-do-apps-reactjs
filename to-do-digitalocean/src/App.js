@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import './assets/css/materialize.min.css'
+import { Todo } from './components/Todo';
 
 function App() {
+  const [todos, setTodos] = useState([
+    { text: "Learn about React" },
+    { text: "Meet friend for lunch" },
+    { text: "Build really cool todo app" }
+  ]);
   return (
     <div className="container">
       <div className="row">
@@ -10,11 +16,19 @@ function App() {
           <div className="card horizontal center">
             <div className="card-stacked">
               <div className="card-content">
-                  <h3>ToDo App</h3>
-                  <p className="flow-text">A Simple Todo App Using React js from DigitalOcean tutorial</p>
+                <h3>ToDo App</h3>
+                <p className="flow-text">A Simple Todo App Using React js from DigitalOcean tutorial</p>
 
               </div>
-              <div className="card-action"><p  className="">Our Todo List should be rendered here</p> </div>
+              <div className="card-action todo-list">
+                {todos.map((todo, index) => (
+                  <Todo
+                    key={index}
+                    index={index}
+                    todo={todo}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>
