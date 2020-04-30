@@ -2,13 +2,21 @@ import React, { useState } from 'react';
 import './App.css';
 import './assets/css/materialize.min.css'
 import { Todo } from './components/Todo';
+import TodoForm from './components/TodoForm';
 
 function App() {
+
   const [todos, setTodos] = useState([
     { text: "Learn about React" },
     { text: "Meet friend for lunch" },
     { text: "Build really cool todo app" }
   ]);
+
+  const addTodo = text => {
+    const newTodos = [...todos, {text}];
+    setTodos(newTodos);
+  };
+
   return (
     <div className="container">
       <div className="row">
@@ -28,6 +36,8 @@ function App() {
                     todo={todo}
                   />
                 ))}
+
+                <TodoForm addTodo={addTodo} />
               </div>
             </div>
           </div>
