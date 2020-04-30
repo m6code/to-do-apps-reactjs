@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import './App.css';
 import './assets/css/materialize.min.css';
+import './App.css';
 import { Todo } from './components/Todo';
 import TodoForm from './components/TodoForm';
 
@@ -30,7 +30,14 @@ function App() {
     const newTodos = [...todos];
     newTodos[index].isCompleted = true;
     setTodos(newTodos);
-  }
+  };
+
+  const removeTodo = index => {
+    const newTodos = [...todos];
+    newTodos.splice(index, 1);
+    setTodos(newTodos);
+  };
+
   return (
     <div className="container">
       <div className="row">
@@ -49,6 +56,7 @@ function App() {
                     index={index}
                     todo={todo}
                     completeTodo={completeTodo}
+                    removeTodo={removeTodo}
                   />
                 ))}
 
