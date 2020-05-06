@@ -1,6 +1,22 @@
 import React from 'react'
 
+import Todo from './todo';
+
 export default function TodoList() {
+    const todos = [
+        {
+            "id" : Date.now(),
+            "value": "Buy milk",
+            "isDone": false,
+        },
+        {
+            "id" : Date.now()+1,
+            "value": "Play with goge boye",
+            "isDone": true,
+        },
+    ]
+
+
     return (
         <div>
             <div className="hero is-info">
@@ -11,7 +27,9 @@ export default function TodoList() {
 
             <section className="section">
                 <div className="container">
-                    Todos will show up here later
+                    {todos.map(todo => (
+                        <Todo key={todo.id} todo={todo}/>
+                    ))}
                 </div>
             </section>
         </div>
