@@ -1,13 +1,14 @@
 import React from 'react';
 import Navbar from './components/navbar';
 import TodoList from './components/todolist';
+import { TodoProvider } from './TodoContext';
 
 function App() {
   return (
-    <div>
+    <TodoProvider>
       <Navbar/>
       <TodoList/>
-    </div>
+    </TodoProvider>
   );
 }
 
