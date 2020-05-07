@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
 import ListItems from './components/ListItems';
-import {library} from '@fortawesome/fontawesome-svg-core';
-import {faTrash} from '@fortawesome/free-solid-svg-icons'
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
 
 
 library.add(faTrash);
@@ -21,6 +21,7 @@ export default class App extends React.Component {
     }
     this.handleInput = this.handleInput.bind(this);
     this.addItem = this.addItem.bind(this);
+    this.delete = this.delete.bind(this);
 
   }
 
@@ -49,6 +50,14 @@ export default class App extends React.Component {
     }
   }
 
+  delete(key) {
+    const filterItems = this.state.items.filter(item =>
+      item.key !== key)
+    this.setState({
+      items: filterItems,
+    })
+  }
+
 
   render() {
     return (
@@ -63,7 +72,8 @@ export default class App extends React.Component {
             <button type='submit'>Add Todo</button>
           </form>
         </header>
-        <ListItems items={this.state.items} />
+        <ListItems items={this.state.items}
+          delete={this.delete} />
       </div>
     )
   }
