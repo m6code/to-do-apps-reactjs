@@ -22,6 +22,7 @@ export default class App extends React.Component {
     this.handleInput = this.handleInput.bind(this);
     this.addItem = this.addItem.bind(this);
     this.delete = this.delete.bind(this);
+    this.update = this.update.bind(this);
 
   }
 
@@ -54,7 +55,19 @@ export default class App extends React.Component {
     const filterItems = this.state.items.filter(item =>
       item.key !== key)
     this.setState({
-      items: filterItems,
+      items: filterItems
+    })
+  }
+
+  update(text, key){
+    const items = this.state.items;
+    items.map(item => {
+      if(item.key === key){
+        item.text = text;
+      }
+    })
+    this.setState({
+      items: items,
     })
   }
 
@@ -73,7 +86,8 @@ export default class App extends React.Component {
           </form>
         </header>
         <ListItems items={this.state.items}
-          delete={this.delete} />
+          delete={this.delete} 
+          update ={this.update}/>
       </div>
     )
   }
