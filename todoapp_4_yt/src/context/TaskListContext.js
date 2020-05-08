@@ -18,8 +18,15 @@ const TaskListContextProvider = (props) => {
         }
     ]);
 
+    const addTask = (title) => {
+        setTasks([...tasks, {title: title, id: Date.now()}])
+    }
+
     return (
-        <TaskListContext.Provider value={{tasks}}>
+        <TaskListContext.Provider value={{
+            tasks,
+            addTask
+        }}>
             {props.children}
         </TaskListContext.Provider>
     )
