@@ -6,6 +6,10 @@ A Repository Containing some TodoApps built with Reactjs for learning purpose.
 
 ## 3. [To Do App in React (Adding, Editing and Deleting Items) Deploy in Github for freeTutorial](https://www.youtube.com/watch?v=N8kYlimhuLw)
 
+- View live demo of app here [Todo3 demo](https://m6code.github.io/todo-app-demo)
+
 ## 4. [React App with Context API and React Hooks _ Build a Task Manager using React _ Context API _ Hooks](https://www.youtube.com/watch?v=fqup-BL3VjI)
+
+- View live demo of app here [Todo app 4 demo](https://m6code.github.io/TaskManager-reactjs)
 
 ## 5. []()
